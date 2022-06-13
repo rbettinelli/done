@@ -70,3 +70,10 @@ To gain traction I find that a digital front marketing would work very well, suc
 # Activity (Diagram 2) 
 
 ![Miro Screen](Images/ActivityDia.png)
+
+# Updates
+
+| # | Date | Update | 
+|---|:---:|:---:|
+| 1 | 06/13/2022 | Move to MASTER - 1st Version Uploaded. Main Stuff Moved |
+| 2 | | |
