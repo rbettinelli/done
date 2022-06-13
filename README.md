@@ -1,5 +1,14 @@
 # Program Name (MDEV1012-22S-31310 - Georgian College, 2022)
-# Business Proposal - Robert Bettinelli 
+# Business Proposal - 
+
+|#| Developers |
+|---|:---:|
+|1|rbettinelli|
+|2|ozanhasdemir|
+|3|Monica.VargasYanez|
+| | |
+| Adviser | benvanarragon |
+
 # Done. – Family To Do Awards App.
 
 
