@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1044429383226",
+    "project_id": "doneioserv",
+    "storage_bucket": "doneioserv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044429383226:android:45f1c9866d977baa29b703",
+        "android_client_info": {
+          "package_name": "com.ioserv.done"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044429383226-3blu89lngh3um372vbgrea3q5l1s060e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC552hjXl3jGTWmjqH5mq5cAhK-OhIDCBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044429383226-3blu89lngh3um372vbgrea3q5l1s060e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
