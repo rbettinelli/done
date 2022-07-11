@@ -5,4 +5,9 @@
     <string name="enter_password">Enter password</string>
     <string name="forgot_your_password">Forgot your password?</string>
     <string name="new_user_sign_in">New User? Sign In?</string>
+    <string name="done">Done!</string>
+    <string name="start">Start!</string>
+    <string name="save">Save</string>
+    <string name="detail">Detail</string>
+    <string name="profile_mod">Profile Mod</string>
 </resources>

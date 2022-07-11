@@ -5,15 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.textfield.TextInputLayout;
-
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-import java.util.ArrayList;
 
 public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNetworkCallCompleteListener {
 
@@ -22,13 +17,12 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
     private LoadWebServices modelWebServices;
     JSONObject requestData;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_login);
 
-        Button button = findViewById(R.id.loginButton);
+        Button button = findViewById(R.id.saveButton);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 loginStart();
@@ -40,15 +34,15 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
     public void loginStart() {
         // Check Login Here.
 
-        //TextInputLayout textInputLayoutU = findViewById(R.id.kidName);
-        //String textUser = textInputLayoutU.getEditText().getText();
+        TextInputLayout textInputLayoutU = findViewById(R.id.kidName);
+        String textUser = textInputLayoutU.getEditText().getText().toString();
 
-        //TextInputLayout textInputLayoutP = findViewById(R.id.userPass);
-        //String textPass = textInputLayoutP.getEditText().getText();
+        TextInputLayout textInputLayoutP = findViewById(R.id.userPass);
+        String textPass = textInputLayoutP.getEditText().getText().toString();
 
 
         // Web Service - JSON CALL.
-        url = "https://doneapi.io-serv.com/MyWebService.asmx/GetUsers?ID=1";
+        url = "http://donenextapp.com/MyWebService.asmx/VerifyUser?U=" + textUser + "&P=" + textPass;
         modelWebServices = new VolleyGet(this,url);
         modelWebServices.setOnNetworkCallCompleteListener(this);
     }
@@ -67,7 +61,28 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
         requestData = modelWebServices.getResponseData();
 
         try {
-            JSONObject jObject = requestData;
+            //JSONObject jObject = requestData;
+
+            JSONObject jsonObject = requestData;
+            JSONArray dataArray = jsonObject.getJSONArray("Table");
+            JSONObject logonDetail = dataArray.getJSONObject(0);
+
+            Global.myValidUser = logonDetail.getBoolean("Ok");
+            Global.myValidUserID = logonDetail.getInt("ID");
+            Global.myValidUserType = logonDetail.getString("typ");
+
+            if (Global.myValidUser) {
+                if (Global.myValidUserType == "Parent") {
+                    //Parent
+                    startActivity(new Intent(MainLogin.this, AdminProfile.class));
+                } else {
+                    //Kid
+                    //startActivity(new Intent(MainLogin.this, KidTasks.class));
+                }
+            }else{
+                errorOccurred("Invalid Login");
+            }
+
         } catch (Exception e) {
             //idx = "Json DOA";
         }
