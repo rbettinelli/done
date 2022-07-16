@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_admin_tasks.xml" value="0.25416666666666665" />
+        <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_main_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_main_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_rewards_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_sub_user.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable/object_border.xml" value="0.193" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.2109375" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.168359375" />
@@ -17,7 +22,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
