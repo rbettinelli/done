@@ -34,7 +34,7 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
     public void loginStart() {
         // Check Login Here.
 
-        TextInputLayout textInputLayoutU = findViewById(R.id.kidName);
+        TextInputLayout textInputLayoutU = findViewById(R.id.name);
         String textUser = textInputLayoutU.getEditText().getText().toString();
 
         TextInputLayout textInputLayoutP = findViewById(R.id.userPass);

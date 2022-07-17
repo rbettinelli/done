@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_admin.xml" value="0.25416666666666665" />
+        <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_admin_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_admin_tasks.xml" value="0.25416666666666665" />
+        <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_main_login.xml" value="0.25416666666666665" />
         <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_main_register.xml" value="0.25416666666666665" />
         <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_rewards_dashboard.xml" value="0.25416666666666665" />
-        <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_sub_user.xml" value="0.25416666666666665" />
+        <entry key="..\:/DEVEL/Git_Repos/done/app/src/main/res/layout/activity_sub_user.xml" value="0.264" />
         <entry key="app/src/main/res/drawable/object_border.xml" value="0.193" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.2109375" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.168359375" />
