@@ -5,15 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.util.HashMap;
 
 public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNetworkCallCompleteListener {
 
-    // web Services Model.
-    String url;
+    // web Services Model
     private LoadWebServices modelWebServices;
     JSONObject requestData;
 
@@ -34,16 +33,18 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
     public void loginStart() {
         // Check Login Here.
 
-        TextInputLayout textInputLayoutU = findViewById(R.id.kidName);
+        TextInputLayout textInputLayoutU = findViewById(R.id.eMail);
         String textUser = textInputLayoutU.getEditText().getText().toString();
 
         TextInputLayout textInputLayoutP = findViewById(R.id.userPass);
         String textPass = textInputLayoutP.getEditText().getText().toString();
 
 
-        // Web Service - JSON CALL.
-        url = "http://donenextapp.com/MyWebService.asmx/VerifyUser?U=" + textUser + "&P=" + textPass;
-        modelWebServices = new VolleyGet(this,url);
+        // Web Service - JSON CALL //
+        HashMap<String,Object> param = new HashMap<>();
+        param.put("U",textUser);
+        param.put("P",textPass);
+        modelWebServices = new VolleyGet(this,"spg_UserVerify",param);
         modelWebServices.setOnNetworkCallCompleteListener(this);
     }
 
@@ -72,7 +73,7 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
             Global.myValidUserType = logonDetail.getString("typ");
 
             if (Global.myValidUser) {
-                if (Global.myValidUserType == "Parent") {
+                if (Global.myValidUserType.equals("Parent")) {
                     //Parent
                     startActivity(new Intent(MainLogin.this, AdminProfile.class));
                 } else {
@@ -80,7 +81,7 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
                     //startActivity(new Intent(MainLogin.this, KidTasks.class));
                 }
             }else{
-                errorOccurred("Invalid Login");
+                Global.errorOccurred(getApplicationContext(),"Invalid Login");
             }
 
         } catch (Exception e) {
@@ -90,9 +91,7 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
 
     @Override
     public void errorOccurred(String errorMessage) {
-        Toast toast=Toast.makeText(getApplicationContext(),errorMessage,Toast.LENGTH_SHORT);
-        toast.setMargin(50,50);
-        toast.show();
+        Global.errorOccurred(getApplicationContext(),"Connection Fault");
     }
 
 }

@@ -20,19 +20,22 @@
         android:textSize="48sp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/kidName"
+        android:id="@+id/eMail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
-        android:hint="@string/enter_username"
+        android:hint="Enter Email"
+        app:counterEnabled="true"
+        app:counterMaxLength="29"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:maxLength= "29"
             android:gravity="center_vertical" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -45,11 +48,14 @@
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
         android:hint="@string/enter_password"
-        app:endIconMode="password_toggle">
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLength= "20"
+            app:endIconMode="password_toggle"
+            android:inputType="text|textPassword"
             android:isScrollContainer="false" />
 
     </com.google.android.material.textfield.TextInputLayout>
