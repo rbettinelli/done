@@ -2,7 +2,9 @@ package com.ioserv.done;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import com.google.android.material.textfield.TextInputLayout;
@@ -13,6 +15,7 @@ import java.util.HashMap;
 public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNetworkCallCompleteListener {
 
     // web Services Model
+    private LibCom comLib = new LibCom();
     private LoadWebServices modelWebServices;
     JSONObject requestData;
 
@@ -68,12 +71,17 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
             JSONArray dataArray = jsonObject.getJSONArray("Table");
             JSONObject logonDetail = dataArray.getJSONObject(0);
 
-            Global.myValidUser = logonDetail.getBoolean("Ok");
-            Global.myValidUserID = logonDetail.getInt("ID");
-            Global.myValidUserType = logonDetail.getString("typ");
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor edit = preferences.edit();
+            edit.putInt("id", logonDetail.getInt("ID"));
+            edit.putString("type",logonDetail.getString("typ"));
+            edit.putBoolean("valid",logonDetail.getBoolean("Ok"));
+            edit.apply();
 
-            if (Global.myValidUser) {
-                if (Global.myValidUserType.equals("Parent")) {
+
+
+            if (logonDetail.getBoolean("Ok")) {
+                if (logonDetail.getString("typ").equals("Parent")) {
                     //Parent
                     startActivity(new Intent(MainLogin.this, AdminProfile.class));
                 } else {
@@ -81,7 +89,7 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
                     //startActivity(new Intent(MainLogin.this, KidTasks.class));
                 }
             }else{
-                Global.errorOccurred(getApplicationContext(),"Invalid Login");
+                comLib.ErrorOccurred(getApplicationContext(),"Invalid Login");
             }
 
         } catch (Exception e) {
@@ -91,7 +99,7 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
 
     @Override
     public void errorOccurred(String errorMessage) {
-        Global.errorOccurred(getApplicationContext(),"Connection Fault");
+        comLib.ErrorOccurred(getApplicationContext(),"Connection Fault");
     }
 
 }

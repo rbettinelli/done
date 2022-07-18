@@ -2,7 +2,9 @@ package com.ioserv.done;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import com.google.android.material.textfield.TextInputLayout;
@@ -13,6 +15,7 @@ import java.util.HashMap;
 
 public class MainRegister extends AppCompatActivity implements LoadWebServices.OnNetworkCallCompleteListener {
 
+    private LibCom comLib = new LibCom();
     // web Services Model.
     private LoadWebServices modelWebServices;
     JSONObject requestData;
@@ -33,28 +36,28 @@ public class MainRegister extends AppCompatActivity implements LoadWebServices.O
 
     public void register() {
 
-        TextInputLayout textInputLayoutU = findViewById(R.id.eMail);
+        TextInputLayout textInputLayoutU = findViewById(R.id.userEmailLayout);
         String textUser = textInputLayoutU.getEditText().getText().toString();
 
-        TextInputLayout textInputLayoutP1 = findViewById(R.id.userPass);
-        String textUser1 = textInputLayoutP1.getEditText().getText().toString();
+        TextInputLayout textInputLayoutP1 = findViewById(R.id.userPass1Layout);
+        String textPass1 = textInputLayoutP1.getEditText().getText().toString();
 
-        TextInputLayout textInputLayoutP2 = findViewById(R.id.userPass2);
-        String textUser2 = textInputLayoutP2.getEditText().getText().toString();
+        TextInputLayout textInputLayoutP2 = findViewById(R.id.userPass2Layout);
+        String textPass2 = textInputLayoutP2.getEditText().getText().toString();
 
 
-        if (textUser1.equals(textUser2)) {
+        if (textPass1.equals(textPass2)) {
 
             // Web Service - JSON CALL.
             HashMap<String,Object> param = new HashMap<>();
             param.put("U",textUser);
-            param.put("P",textUser1);
+            param.put("P",textPass1);
 
-            modelWebServices = new VolleyGet(this,"VerifyUser",param);
+            modelWebServices = new VolleyGet(this,"spi_RegisterUser",param);
             modelWebServices.setOnNetworkCallCompleteListener(this);
 
         }else {
-            Global.errorOccurred(getApplicationContext(),"Error!");
+            comLib.ErrorOccurred(getApplicationContext(),"Error!");
         }
 
     }
@@ -65,32 +68,33 @@ public class MainRegister extends AppCompatActivity implements LoadWebServices.O
         requestData = modelWebServices.getResponseData();
 
         try {
-            //JSONObject jObject = requestData;
-
             JSONObject jsonObject = requestData;
             JSONArray dataArray = jsonObject.getJSONArray("Table");
-            JSONObject logonDetail = dataArray.getJSONObject(0);
+            JSONObject regDetail = dataArray.getJSONObject(0);
 
-            if (logonDetail.getBoolean("Ok")) {
-                Global.myValidUser = logonDetail.getBoolean("Ok");
-                Global.myValidUserID = logonDetail.getInt("ID");
-                Global.myValidUserType = logonDetail.getString("typ");
+            if (regDetail.getBoolean("Ok")) {
+
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor edit = preferences.edit();
+                edit.putInt("id", regDetail.getInt("ID"));
+                edit.putString("type",regDetail.getString("typ"));
+                edit.putBoolean("valid",regDetail.getBoolean("Ok"));
+                edit.apply();
 
                 startActivity(new Intent(MainRegister.this, MainLogin.class));
             } else {
-                Global.errorOccurred(getApplicationContext(), "Invalid Registration");
+                comLib.ErrorOccurred(getApplicationContext(), "Invalid Registration");
             }
 
         } catch (Exception e) {
-            //idx = "Json DOA";
+            //String x = e.toString();
+            comLib.ErrorOccurred(getApplicationContext(), "App Fault.");
         }
     }
 
     @Override
     public void errorOccurred(String errorMessage) {
-        Global.errorOccurred(getApplicationContext(),"Connection Fault");
+        comLib.ErrorOccurred(getApplicationContext(),"Connection Fault");
     }
-
-
 
 }

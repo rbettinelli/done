@@ -21,52 +21,65 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userEmail"
+        android:id="@+id/userEmailLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:hint="E-Mail Address"
+        app:counterEnabled="true"
+        app:counterMaxLength="29"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:maxLength= "29"
             android:gravity="center_vertical" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userPass"
+        android:id="@+id/userPass1Layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:hint="Enter password"
-        app:endIconMode="password_toggle">
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userPass1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLength= "20"
+            app:endIconMode="password_toggle"
+            android:inputType="text|textPassword"
             android:isScrollContainer="false" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userPass2"
+        android:id="@+id/userPass2Layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:hint="Re-Enter password"
-        app:endIconMode="password_toggle">
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userPass2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLength= "20"
+            app:endIconMode="password_toggle"
+            android:inputType="text|textPassword"
             android:isScrollContainer="false" />
 
     </com.google.android.material.textfield.TextInputLayout>

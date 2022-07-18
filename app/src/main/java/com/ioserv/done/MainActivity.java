@@ -3,8 +3,10 @@ package com.ioserv.done;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.webkit.WebView;
 import android.widget.Toast;
 
@@ -21,11 +23,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        try {
-            Global.mySk = generateKey();
-        } catch (NoSuchAlgorithmException e) {
-            errorOccurred("Security Key Fail.");
-        }
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Integer userid = preferences.getInt("id", 0);
+        String userType = preferences.getString("type", "");
+        Boolean userValid = preferences.getBoolean("valid", false);
 
         WebView myWebView = findViewById(R.id.MyWeb1);
         myWebView.loadUrl("https://bettinelli.ca");
