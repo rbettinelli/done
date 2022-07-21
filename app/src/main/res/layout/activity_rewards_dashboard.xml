@@ -27,7 +27,7 @@
             android:id="@+id/imageView5"
             android:layout_width="373dp"
             android:layout_height="181dp"
-            app:srcCompat="@drawable/_ce23b4a_d22f_4a19_a099_5a180187d83b" />
+            app:srcCompat="@drawable/savings" />
 
         <TextView
             android:id="@+id/textView3"
@@ -54,7 +54,7 @@
                     android:layout_width="88dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/_ce23b4a_d22f_4a19_a099_5a180187d83b" />
+                    app:srcCompat="@drawable/savings" />
 
                 <Button
                     android:id="@+id/button2"
@@ -75,7 +75,7 @@
                     android:layout_width="88dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/_ce23b4a_d22f_4a19_a099_5a180187d83b" />
+                    app:srcCompat="@drawable/savings" />
 
                 <Button
                     android:id="@+id/button3"
@@ -95,7 +95,7 @@
                     android:layout_width="88dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/_ce23b4a_d22f_4a19_a099_5a180187d83b" />
+                    app:srcCompat="@drawable/savings" />
 
                 <Button
                     android:id="@+id/button4"
