@@ -23,9 +23,6 @@
             android:name=".AdminMasterProfile"
             android:exported="false" />
         <activity
-            android:name=".RewardsDashboard"
-            android:exported="false" />
-        <activity
             android:name=".MainRegister"
             android:exported="false" />
         <activity

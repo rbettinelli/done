@@ -3,10 +3,17 @@ package com.ioserv.done;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.google.android.gms.tasks.Task;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,6 +59,19 @@ public class UserTasksFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+            /*ListView taskList = getView().findViewById(R.id.tasksListView);
+
+            //DummyData
+            ArrayList<Task> arrayList = new ArrayList<>();
+            arrayList.add(new Task(R.drawable.feed_pet, "31-12-2022", "5 CAD", "daily"));
+            arrayList.add(new Task(R.drawable.dishes, "08-12-2022", "15 CAD", "3 days at week"));
+            arrayList.add(new Task(R.drawable.mop_clean, "09-12-2022", "20 CAD", "1 day at week"));
+
+            //custom adapter
+            ArrayAdapter adapter = new ArrayAdapter<String>(this,tasklist,arrayList);
+            taskList.setAdapter(adapter); */
+
         }
     }
 
