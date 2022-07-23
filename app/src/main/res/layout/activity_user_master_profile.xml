@@ -19,7 +19,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragCont"
-            android:name="com.ioserv.done.AdminProfileFragment"
+            android:name="com.ioserv.done.UserProfileFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

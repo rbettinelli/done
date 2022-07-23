@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:gravity="center"
-            android:text="Rewards"
+            android:text="Kid Rewards"
             android:textColor="@color/design_default_color_error"
             android:textSize="48sp" />
 

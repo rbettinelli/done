@@ -86,7 +86,7 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
                     startActivity(new Intent(MainLogin.this, AdminMasterProfile.class));
                 } else {
                     //Kid
-                    //startActivity(new Intent(MainLogin.this, KidTasks.class));
+                    startActivity(new Intent(MainLogin.this, UserMasterProfile.class));
                 }
             }else{
                 comLib.ErrorOccurred(getApplicationContext(),"Invalid Login");
