@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class GameSound {
 
-    private static Set<MediaPlayer> activePlayers = new HashSet<MediaPlayer>();
+    private static final Set<MediaPlayer> activePlayers = new HashSet<>();
 
     public void playSound(Context context,Integer idx) {
         MediaPlayer player = MediaPlayer.create(context, idx);
@@ -16,11 +16,9 @@ public class GameSound {
         player.start();
     }
 
-    MediaPlayer.OnCompletionListener releaseOnFinishListener = new MediaPlayer.OnCompletionListener() {
-        public void onCompletion(MediaPlayer mp) {
-            mp.release();
-            activePlayers.remove(mp);
-        }
+    MediaPlayer.OnCompletionListener releaseOnFinishListener = mp -> {
+        mp.release();
+        activePlayers.remove(mp);
     };
 
 }

@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 public class MainRegister extends AppCompatActivity implements LoadWebServices.OnNetworkCallCompleteListener {
 
-    private LibCom comLib = new LibCom();
+    private final LibCom comLib = new LibCom();
     // web Services Model.
     private LoadWebServices modelWebServices;
     JSONObject requestData;
@@ -26,11 +26,7 @@ public class MainRegister extends AppCompatActivity implements LoadWebServices.O
         setContentView(R.layout.activity_main_register);
 
         Button button = findViewById(R.id.saveButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                register();
-            }
-        });
+        button.setOnClickListener(v -> register());
 
     }
 
@@ -44,7 +40,6 @@ public class MainRegister extends AppCompatActivity implements LoadWebServices.O
 
         TextInputLayout textInputLayoutP2 = findViewById(R.id.userPass2Layout);
         String textPass2 = textInputLayoutP2.getEditText().getText().toString();
-
 
         if (textPass1.equals(textPass2)) {
 

@@ -83,7 +83,7 @@ public class MainLogin extends AppCompatActivity implements LoadWebServices.OnNe
             if (logonDetail.getBoolean("Ok")) {
                 if (logonDetail.getString("typ").equals("Parent")) {
                     //Parent
-                    startActivity(new Intent(MainLogin.this, AdminProfile.class));
+                    startActivity(new Intent(MainLogin.this, AdminMasterProfile.class));
                 } else {
                     //Kid
                     //startActivity(new Intent(MainLogin.this, KidTasks.class));
